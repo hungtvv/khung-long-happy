@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Vũ Trụ Khủng Long Xanh & Hồng 20/10 ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Liên kết trực tiếp tới file CSS trong thư mục css/ -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Thư viện Three.js & OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <canvas id="star-bg"></canvas>
+
+  <!-- Liên kết trực tiếp tới file nhạc trong thư mục assets/audio/ -->
+  <audio id="bgm-player" src="assets/audio/bgm.wav" loop preload="auto"></audio>
+
+  <!-- MÀN HÌNH 1: BÓ HOA TƯƠNG TÁC -->
+  <section id="stage-bouquet" class="stage">
+    <div class="bouquet-container" id="bouquet-trigger">
+      <div class="butterfly">
+        <svg viewBox="0 0 64 64">
+          <path d="M30 32 C12 10, 2 18, 8 34 C12 44, 24 40, 30 34 Z" fill="#ffb3d9" stroke="#fff" stroke-width="1.5"/>
+          <path d="M34 32 C52 10, 62 18, 56 34 C52 44, 40 40, 34 34 Z" fill="#ffb3d9" stroke="#fff" stroke-width="1.5"/>
+          <path d="M30 35 C16 42, 12 56, 22 54 C28 52, 30 42, 31 36 Z" fill="#ff80bf" stroke="#fff" stroke-width="1.2"/>
+          <path d="M34 35 C48 42, 52 56, 42 54 C36 52, 34 42, 33 36 Z" fill="#ff80bf" stroke="#fff" stroke-width="1.2"/>
+          <rect x="30.5" y="22" width="3" height="20" rx="1.5" fill="#fff"/>
+        </svg>
+      </div>
+
+      <!-- 5 Ảnh nảy lên từ bó hoa (Link tới assets/images/) -->
+      <img id="pop-0" class="pop-photo p1" src="assets/images/photo-1.png" alt="Kỷ niệm 1" />
+      <img id="pop-1" class="pop-photo p2" src="assets/images/photo-2.png" alt="Kỷ niệm 2" />
+      <img id="pop-2" class="pop-photo p3" src="assets/images/photo-3.png" alt="Kỷ niệm 3" />
+      <img id="pop-3" class="pop-photo p4" src="assets/images/photo-4.png" alt="Kỷ niệm 4" />
+      <img id="pop-4" class="pop-photo p5" src="assets/images/photo-5.png" alt="Kỷ niệm 5" />
+
+      <svg class="hold-ring" id="hold-ring" viewBox="0 0 110 110">
+        <circle id="hold-progress" cx="55" cy="55" r="50"></circle>
+      </svg>
+
+      <svg class="bouquet-svg" viewBox="0 0 360 430" fill="none">
+        <path d="M55 155 L35 240 L180 390 L325 240 L305 155 Q180 120 55 155 Z" fill="#ffd6e8" stroke="#ffb3d1" stroke-width="2"/>
+        <path d="M75 135 Q180 95 285 135 L310 225 L180 375 L50 225 Z" fill="#ffe6f2"/>
+        <g fill="#5c9c78">
+          <ellipse cx="85" cy="145" rx="22" ry="12" transform="rotate(-35 85 145)"/>
+          <ellipse cx="275" cy="145" rx="22" ry="12" transform="rotate(35 275 145)"/>
+          <ellipse cx="120" cy="110" rx="18" ry="10" transform="rotate(-20 120 110)"/>
+          <ellipse cx="240" cy="110" rx="18" ry="10" transform="rotate(20 240 110)"/>
+        </g>
+        <g transform="translate(105, 145)">
+          <circle cx="0" cy="0" r="32" fill="#ff99c2"/><circle cx="-3" cy="-3" r="23" fill="#ffb3d1"/>
+          <path d="M-12 -5 C-5 -18, 12 -15, 10 2 C8 14, -10 14, -14 0" stroke="#e60073" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(255, 145)">
+          <circle cx="0" cy="0" r="32" fill="#ff99c2"/><circle cx="3" cy="-3" r="23" fill="#ffb3d1"/>
+          <path d="M-10 -5 C-3 -18, 14 -15, 12 2 C10 14, -8 14, -12 0" stroke="#e60073" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(180, 125)">
+          <circle cx="0" cy="0" r="36" fill="#ff80b3"/><circle cx="0" cy="-2" r="26" fill="#ffb3d1"/>
+          <path d="M-14 -4 C-6 -20, 14 -18, 12 3 C10 16, -12 15, -14 0" stroke="#d81b60" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(115, 205)">
+          <circle cx="0" cy="0" r="34" fill="#ffb3d1"/><circle cx="0" cy="-2" r="24" fill="#ffd6e8"/>
+          <path d="M-10 -4 C-4 -16, 12 -14, 10 2 C8 12, -8 12, -10 0" stroke="#ff3385" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(245, 205)">
+          <circle cx="0" cy="0" r="34" fill="#ffb3d1"/><circle cx="0" cy="-2" r="24" fill="#ffd6e8"/>
+          <path d="M-10 -4 C-4 -16, 12 -14, 10 2 C8 12, -8 12, -10 0" stroke="#ff3385" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(180, 190)">
+          <circle cx="0" cy="0" r="40" fill="#ff66a3"/><circle cx="0" cy="-3" r="30" fill="#ff99c2"/><circle cx="0" cy="-5" r="19" fill="#ffd6e8"/>
+          <path d="M-12 -5 C-5 -18, 14 -16, 12 2 C10 14, -10 14, -12 0" stroke="#c2185b" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <path d="M48 215 L140 285 L155 395 L180 410 L205 395 L220 285 L312 215 L250 255 L180 245 L110 255 Z" fill="#ffb3d1"/>
+        <path d="M65 220 L180 275 L295 220 L235 315 L180 405 L125 315 Z" fill="#ffcce0"/>
+        <path d="M180 305 C140 275, 115 310, 145 330 C162 340, 175 320, 180 312 Z" fill="#ff66a3"/>
+        <path d="M180 305 C220 275, 245 310, 215 330 C198 340, 185 320, 180 312 Z" fill="#ff66a3"/>
+        <ellipse cx="180" cy="310" rx="12" ry="10" fill="#ff3385"/>
+      </svg>
+    </div>
+
+    <div class="instruction-text" id="bouquet-instruction">Chạm vào bó hoa</div>
+  </section>
+
+  <!-- MÀN HÌNH 2: VŨ TRỤ 3D RỰC RỠ & SAO BĂNG -->
+  <section id="stage-galaxy" class="stage hidden">
+    <div class="nebula-glow-overlay" id="nebula-overlay"></div>
+    <div id="galaxy-canvas-container"></div>
+
+    <div class="top-right-controls">
+      <button class="icon-btn pulse-attention" id="btn-open-letter" title="Mở tâm thư">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="btn-toggle-audio" title="Bật/Tắt nhạc">
+        <svg id="icon-sound-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <svg id="icon-sound-off" style="display:none" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="galaxy-dino-dock" id="galaxy-dino-dock">
+      <div class="dock-dino-pair">
+        <img id="dock-green-dino" class="dock-dino-img" src="assets/images/dino-green.png" alt="Khủng long xanh" />
+        <span class="dock-heart-mid">💗</span>
+        <img id="dock-pink-dino" class="dock-dino-img" src="assets/images/dino-pink.png" alt="Khủng long hồng" />
+      </div>
+      <span class="dock-text" id="dock-speech">
+        Chạm vào đây để gọi mưa Sao Băng & Hạt Phát Sáng rực rỡ, hoặc ấn ✉️ góc trên nha!
+      </span>
+    </div>
+  </section>
+
+  <!-- MÀN HÌNH 3: KHỦNG LONG PNG TƯƠNG TÁC & MỞ THƯ -->
+  <section id="stage-letter" class="stage hidden">
+    <button class="icon-btn close-letter-btn" id="btn-close-letter" title="Quay lại vũ trụ 3D">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="dino-interactive-card" id="dino-card">
+      <div class="dino-speech-bubble" id="dino-dialogue">
+        "Bé khủng long hồng mở thư nhé, điều thú vị đang chờ nà 🍑💗"
+      </div>
+
+      <div class="dino-png-stage" id="dino-png-stage">
+        <div class="stage-floating-hearts">🍑 💗 ✨</div>
+        <img id="stage-green-dino" class="dino-png-actor green" src="assets/images/dino-green.png" alt="Khủng Long Xanh PNG" />
+        <img id="stage-pink-dino" class="dino-png-actor pink" src="assets/images/dino-pink.png" alt="Khủng Long Hồng PNG" />
+      </div>
+
+      <div class="touch-hint-badge">👆 Chạm vào Khủng Long Xanh hoặc Khủng Long Hồng để tương tác!</div>
+    </div>
+
+    <div class="envelope-scene" id="envelope-trigger">
+      <div class="envelope-card" id="envelope-card">
+        <div class="envelope-face envelope-front">
+          <div class="env-subtitle">Dành tặng em</div>
+          <div class="env-date">20 / 10</div>
+          <div class="wax-seal">Love</div>
+        </div>
+
+        <div class="envelope-face envelope-back">
+          <div class="envelope-flap" id="envelope-flap">
+            <svg viewBox="0 0 320 100" preserveAspectRatio="none" width="100%" height="100%">
+              <polygon points="0,0 320,0 160,98" fill="#ff80b3" stroke="#ff66a3" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <div class="letter-slide-preview" id="letter-slide-preview">
+            <div class="preview-line" style="width: 55%; background:#ff99c2;"></div>
+            <div class="preview-line" style="width: 90%;"></div>
+            <div class="preview-line" style="width: 82%;"></div>
+          </div>
+
+          <div class="envelope-pocket">
+            <svg viewBox="0 0 320 190" preserveAspectRatio="none">
+              <polygon points="0,0 160,100 0,190" fill="#ffb3d1"/>
+              <polygon points="320,0 160,100 320,190" fill="#ffb3d1"/>
+              <polygon points="0,190 160,92 320,190" fill="#ff99c2" stroke="#ff80b3" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="instruction-text" id="envelope-instruction" style="margin-top:10px;">Chạm phong bì để mở thư</div>
+
+    <div class="full-letter-modal" id="full-letter-modal">
+      <div class="letter-paper">
+        <button class="close-paper-btn" id="btn-close-paper" title="Đóng tờ thư">✕</button>
+        <h2 class="letter-title" id="letter-title-text">Gửi bé khủng long hồng của anh ❤️</h2>
+        <div class="letter-body" id="letter-body-text"></div>
+
+        <div class="letter-footer-decor">
+          <div class="letter-dino-pair">
+            <img id="letter-green-dino" src="assets/images/dino-green.png" alt="Khủng Long Xanh" />
+            <img id="letter-pink-dino" src="assets/images/dino-pink.png" alt="Khủng Long Hồng" />
+          </div>
+          <img id="letter-corner-img" class="letter-corner-photo" src="assets/images/dino-couple.png" alt="Khủng long nhỏ" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liên kết trực tiếp tới 2 file JS trong thư mục js/ -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
